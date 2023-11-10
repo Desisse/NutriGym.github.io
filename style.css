@@ -695,7 +695,109 @@ border-right: 1px solid #e2e2e2;
    font-size: 1.6rem; 
 }
 
-/*Login*/
+/*Detalles del Producto*/
+.card{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 380px;
+    background-color:#fff;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover{
+    width: 600px;
+}
+
+
+.card .imgBox{
+    position: relative;
+    min-width: 300px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.card:hover .imgBox{
+    transform: rotate(-35deg);
+}
+.card .imgBox img{
+    width: 85%;
+}
+
+.card .details{
+    position: relative;
+    min-width: 300px;
+    background: #4ba9e9;   
+}
+
+.card .details{
+    position: relative;
+    min-width: 300px;
+    background-color: #427D9D;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 20px;  
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card .details::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.card .details title small{
+    font-weight: 200;
+    font-size: 2rem;
+}
+
+.card .details h4{
+    font-size: 1.7rem;
+}
+
+.card .details h3{
+    font-size: 2rem;
+}
+
+.card .details .description{
+    font-size: 1.4rem;
+    font-weight: 200;
+}
+
+.card .details .buy{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .details .buy .price{
+    font-size: 1.6rem;   
+}
+
+.card .details .buy .btn{
+    background: #fff;
+    padding: 0.5rem 0.8rem;
+    text-transform: uppercase;
+}
+
+.card .details .buy .btn a{
+    text-decoration: none;
+    color: #164863;
+}
 
 
 
