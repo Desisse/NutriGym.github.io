@@ -798,8 +798,29 @@ border-right: 1px solid #e2e2e2;
     text-decoration: none;
     color: #164863;
 }
+#cookie-notification {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #0C356A;
+    color: #fff;
+    text-align: center;
+}
 
-
+#cookie-notification button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 
 
