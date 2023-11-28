@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3P67NQVHMR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en">
 
-  gtag('config', 'G-3P67NQVHMR');
-</script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link rel="stylesheet" href="Estilos.css">
+    <title>Log in</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <section class="form-main">
-        <div class="form-content">
-            <div class="circle-1"></div>
-            <div class="circle-2"></div>
-            <div class="circle-3"></div>
-            <div class="box">
-                <h3>Crear una cuenta</h3>
-                <form action="">
-                    <div class="input-box">
-                        <input type="text" placeholder="Nombre Completo" class="input-control">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Correo" class="input-control">
-                    </div>
-                    <div class="input-box">
-                        <input type="password" placeholder="Password" class="input-control">
-                    </div>
-                    <button type="submit" class="btn">Crear Cuenta</button>
-                </form>
-                <p>Ya tienes una cuenta? <a href="Inicio.html" class="gradient-text">Iniciar Sesion</a></p>
+    
+    <div class="wrapper">
+        <form action="">
+            <h1>Registrarse</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Nombre de usuario"
+                required>
             </div>
-        </div>
-    </section>
+            <div class="input-box">
+                <input type="text" placeholder="Correo electrónico"
+                required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Contraseña"
+                required>
+            </div>
+            <button type="submit" class="btn">Registrarse</button>
+
+            <div class="register-link">
+                <p>¿Ya tienes cuenta? <a href="Login.html">Iniciar sesion</a></p>
+            </div>
+        </form>
+    </div>
+
 </body>
 </html>
