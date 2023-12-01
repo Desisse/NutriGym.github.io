@@ -8,27 +8,31 @@
     <link rel="stylesheet" href="Estilos.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    
+
     <div class="wrapper">
         <form action="">
             <h1>Iniciar sesion</h1>
             <div class="input-box">
-                <input type="text" placeholder="Nombre de usuario"
-                required>
+                <input type="text" placeholder="Nombre de usuario" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Contraseña"
-                required>
+                <input type="password" placeholder="Contraseña" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
             <div class="remember-forgot">
                 <label><input type="checkbox"> Recordar</label>
             </div>
+            <!--<button type="submit" class="btn">Iniciar sesion</button>-->
 
-            <button type="submit" class="btn">Iniciar sesion</button>
+            <div class="login">
+                <button type="submit" class="btn">
+                    <a href="index.html">Iniciar sesion</a>
+                </button>
+            </div>
 
             <div class="register-link">
                 <p>¿No tienes cuenta? <a href="Registro.html">Registrate</a></p>
@@ -37,4 +41,5 @@
     </div>
 
 </body>
+
 </html>
