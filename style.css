@@ -822,3 +822,38 @@ border-right: 1px solid #e2e2e2;
     cursor: pointer;
 }
 
+/* Estilos para el apartado de reseñas */
+.product-details {
+    background-color: #427D9D;
+    color: #ffffff;
+    display: flex;
+}
+
+.description {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.reviews {
+    flex: 1;
+}
+
+.user-reviews {
+    margin-top: 20px;
+}
+
+/* Estilos para el formulario de reseñas */
+#reviewForm {
+    margin-top: 20px;
+}
+
+#userReview {
+    width: 100%;
+    height: 100px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    margin-bottom: 10px;
+}
+
+#userReview:focus {
+    outline: none;
+}

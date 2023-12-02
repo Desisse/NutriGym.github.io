@@ -74,6 +74,7 @@
                     <small>Rendimiento Extremo para Hombres y Mujeres</small>
                 </h3>
             </div>
+            
             <div class="description">
                 <h4>Descripción</h4>
                 <p>Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo.<br>
@@ -93,6 +94,7 @@
                 </div>
             </div>
         </div>
+        
         <script>
             paypal.Buttons({
                 createOrder: function(data, actions) {
@@ -114,6 +116,18 @@
         </script>
 
     </div>
+    <div class="product-details"> 
+            <div class="reviews">
+                <h4>Reseñas</h4>
+                <div class="user-reviews">
+                    <!-- Aquí se mostrarán las reseñas ingresadas por los usuarios -->
+                </div>
+                <form id="reviewForm">
+                    <textarea id="userReview" placeholder="Escribe tu reseña aquí"></textarea>
+                    <button type="submit">Enviar reseña</button>
+                </form>
+            </div>
+        </div>
 
     <footer class="footer">
         <div class="container container-footer">
@@ -174,5 +188,27 @@
     src="https://kit.fontawesome.com/b6fba9d152.js" 
     crossorigin="anonymous">
   </script>
+  <script>document.addEventListener("DOMContentLoaded", function() {
+    const reviewForm = document.getElementById("reviewForm");
+    const userReviewInput = document.getElementById("userReview");
+    const userReviewsContainer = document.querySelector(".user-reviews");
+
+    reviewForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const userReviewText = userReviewInput.value.trim();
+        if (userReviewText !== "") {
+            displayUserReview(userReviewText);
+            userReviewInput.value = ""; // Limpiar el área de texto después de enviar la reseña
+        }
+    });
+
+    function displayUserReview(review) {
+        const reviewElement = document.createElement("div");
+        reviewElement.classList.add("user-review");
+        reviewElement.textContent = review;
+        userReviewsContainer.appendChild(reviewElement);
+    }
+});
+</script>
 </body>
 </html>
