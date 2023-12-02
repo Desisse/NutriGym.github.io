@@ -867,6 +867,16 @@ border-right: 1px solid #e2e2e2;
     resize: vertical; /* Permite redimensionar verticalmente */
     margin-left: 20px;
 }
+.button-review {
+    /* Agrega estilos personalizados aquí */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
 #userReview:focus {
     outline: none;
