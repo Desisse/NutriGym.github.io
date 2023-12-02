@@ -887,11 +887,11 @@ border-right: 1px solid #e2e2e2;
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background-image: url('ruta/a/tu/imagen/estrella.png'); /* Reemplaza 'ruta/a/tu/imagen/estrella.png' con la ruta de tu imagen de estrella */
+    background-image: url('imagenes/estrella.png'); /* Reemplaza 'ruta/a/tu/imagen/estrella.png' con la ruta de tu imagen de estrella */
     background-size: cover;
 }
 
 .rating label:hover,
 .rating label:hover ~ label {
-    background-image: url('ruta/a/tu/imagen/estrella-hover.png'); /* Reemplaza 'ruta/a/tu/imagen/estrella-hover.png' con la ruta de tu imagen de estrella cuando se pasa el cursor */
+    background-image: url('imagenes/dorada.png'); /* Reemplaza 'ruta/a/tu/imagen/estrella-hover.png' con la ruta de tu imagen de estrella cuando se pasa el cursor */
 }
