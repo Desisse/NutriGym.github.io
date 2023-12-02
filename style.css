@@ -839,10 +839,14 @@ border-right: 1px solid #e2e2e2;
 
 .reviews {
     flex: 1;
+    background-color: #427D9D;
 }
 
 .user-reviews {
     margin-top: 20px;
+    background-color: white;
+    color: #000000;
+    font-size: 16px;
 }
 
 /* Estilos para el formulario de reseñas */
