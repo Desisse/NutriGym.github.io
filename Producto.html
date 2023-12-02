@@ -195,27 +195,34 @@
     src="https://kit.fontawesome.com/b6fba9d152.js" 
     crossorigin="anonymous">
   </script>
-  <script>document.addEventListener("DOMContentLoaded", function() {
-    const reviewForm = document.getElementById("reviewForm");
-    const userReviewInput = document.getElementById("userReview");
-    const userReviewsContainer = document.querySelector(".user-reviews");
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const reviewForm = document.getElementById("reviewForm");
+        const userReviewInput = document.getElementById("userReview");
+        const userReviewsContainer = document.querySelector(".user-reviews");
 
-    reviewForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const userReviewText = userReviewInput.value.trim();
-        if (userReviewText !== "") {
-            displayUserReview(userReviewText);
-            userReviewInput.value = ""; // Limpiar el área de texto después de enviar la reseña
+        reviewForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const userReviewText = userReviewInput.value.trim();
+            const userRating = document.querySelector('input[name="rating"]:checked');
+
+            if (userReviewText !== "" && userRating) {
+                const reviewWithRating = `${userReviewText} (${userRating.value} stars)`;
+                displayUserReview(reviewWithRating);
+                userReviewInput.value = "";
+                userRating.checked = false;
+            } else {
+                alert("Por favor, ingresa una reseña y selecciona una calificación.");
+            }
+        });
+
+        function displayUserReview(review) {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("user-review");
+            reviewElement.textContent = review;
+            userReviewsContainer.appendChild(reviewElement);
         }
     });
-
-    function displayUserReview(review) {
-        const reviewElement = document.createElement("div");
-        reviewElement.classList.add("user-review");
-        reviewElement.textContent = review;
-        userReviewsContainer.appendChild(reviewElement);
-    }
-});
 </script>
 </body>
 </html>
