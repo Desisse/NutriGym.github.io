@@ -55,7 +55,6 @@ function registrarUsuario() {
 
 // Lista de productos
 const products = [
-    // ... (Agrega la información de tus productos aquí)
     {
         nombre: 'C4 Extreme',
         precio: 350,
