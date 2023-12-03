@@ -110,6 +110,25 @@
         </script>
 
     </div>
+    <div class="product-details"> 
+        <div class="reviews">
+            <h4>Reseñas</h4>
+            <div class="user-reviews">
+                <!-- Aquí se mostrarán las reseñas ingresadas por los usuarios -->
+            </div>
+            <form id="reviewForm">
+                <textarea id="userReview" placeholder="Escribe tu reseña aquí"></textarea>
+                <div class="rating">
+                    <input type="radio" id="estrella5" name="rating" value="5"><label for="estrella5" title="5 estrellas"></label>
+                    <input type="radio" id="estrella4" name="rating" value="4"><label for="estrella4" title="4 estrellas"></label>
+                    <input type="radio" id="estrella3" name="rating" value="3"><label for="estrella3" title="3 estrellas"></label>
+                    <input type="radio" id="estrella2" name="rating" value="2"><label for="estrella2" title="2 estrellas"></label>
+                    <input type="radio" id="estrella1" name="rating" value="1"><label for="estrella1" title="1 estrella"></label>
+                </div>
+                <button type="submit" class="button-review">Enviar reseña</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container container-footer">
@@ -168,5 +187,34 @@
     src="https://kit.fontawesome.com/b6fba9d152.js" 
     crossorigin="anonymous">
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const reviewForm = document.getElementById("reviewForm");
+        const userReviewInput = document.getElementById("userReview");
+        const userReviewsContainer = document.querySelector(".user-reviews");
+
+        reviewForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const userReviewText = userReviewInput.value.trim();
+            const userRating = document.querySelector('input[name="rating"]:checked');
+
+            if (userReviewText !== "" && userRating) {
+                const reviewWithRating = `${userReviewText} (${userRating.value} estrellas)`;
+                displayUserReview(reviewWithRating);
+                userReviewInput.value = "";
+                userRating.checked = false;
+            } else {
+                alert("Por favor, ingresa una reseña y selecciona una calificación.");
+            }
+        });
+
+        function displayUserReview(review) {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("user-review");
+            reviewElement.textContent = review;
+            userReviewsContainer.appendChild(reviewElement);
+        }
+    });
+</script>
 </body>
 </html>
