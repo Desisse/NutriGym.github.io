@@ -994,3 +994,111 @@ body {
     background-color: #164863;
 }
 
+/*ESTILO Corazon*/
+.like-checkbox {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+label:hover {
+    color: red; /* Cambia el color al pasar el ratón */
+}
+
+i {
+    color: #A5C9CA; /* Color inicial del corazón */
+}
+
+.like-checkbox:checked + label i {
+    color: red; /* Cambia el color cuando el checkbox está seleccionado */
+}
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.like-checkbox:checked ~ .popup-container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
+/*ESTILO Tabla Deseos*/
+.wishlist-container {
+    text-align: center;
+}
+
+.wishlist-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px;
+    
+}
+
+.wishlist-table th, .wishlist-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.wishlist-table th {
+    background-color: #F0F0F0;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.wishlist-table img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilos para el texto dentro de las celdas */
+.wishlist-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilos para el texto del botón de eliminar */
+.delete-button {
+    font-size: 12px;
+}
+
+.wishlist-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}

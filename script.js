@@ -214,3 +214,8 @@ function displayProducts(products) {
 
 // Inicialmente, muestra todos los productos sin filtros
 displayProducts(products);
+
+function deleteProduct(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
