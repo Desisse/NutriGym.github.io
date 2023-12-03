@@ -30,7 +30,7 @@
                 </div> 
                 <div class="container-logo">
                     <i class="fa-solid fa-dumbbell"></i>
-                    <h1 class="logo"><a href="/"> NutriGym Shop</a></h1>
+                    <h1 class="logo"><a href="index.html"> NutriGym Shop</a></h1>
                 </div>
                 <div class="container_user">
                     <i class="fa-solid fa-user"></i>
@@ -48,18 +48,14 @@
                 <i class="fa-solid fa-bars"></i>
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
+                    <li><a href="productos.html">Productos</a></li>
                     <li><a href="#">Lista de Deseos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Registro</a></li>
+                    <li><a href="Ordenes.html">Historial de Ordenes</a></li>
+                    <li><a href="Login.html">Login</a></li>
+                    <li><a href="Registro.html">Registro</a></li>
+                    <li><a href="Cuenta.html">Mi Cuenta</a></li>
                 </ul>
-                <form class="search-form">
-                    <input type="search" placeholder="Buscar..."/>
-                    <button class="btn-search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+                
             </nav>
         </div>
     </header>
@@ -112,6 +108,26 @@
         </script>
 
     </div>
+    <div class="product-details"> 
+        <div class="reviews">
+            <h4>Reseñas</h4>
+            <div class="user-reviews">
+                <!-- Aquí se mostrarán las reseñas ingresadas por los usuarios -->
+            </div>
+            <form id="reviewForm">
+                <textarea id="userReview" placeholder="Escribe tu reseña aquí"></textarea>
+                <div class="rating">
+                    <input type="radio" id="estrella5" name="rating" value="5"><label for="estrella5" title="5 estrellas"></label>
+                    <input type="radio" id="estrella4" name="rating" value="4"><label for="estrella4" title="4 estrellas"></label>
+                    <input type="radio" id="estrella3" name="rating" value="3"><label for="estrella3" title="3 estrellas"></label>
+                    <input type="radio" id="estrella2" name="rating" value="2"><label for="estrella2" title="2 estrellas"></label>
+                    <input type="radio" id="estrella1" name="rating" value="1"><label for="estrella1" title="1 estrella"></label>
+                </div>
+                <button type="submit" class="button-review">Enviar reseña</button>
+            </form>
+        </div>
+    </div>
+
 
     <footer class="footer">
         <div class="container container-footer">
@@ -128,23 +144,22 @@
                         <a href= "https://www.facebook.com/profile.php?id=61553337389807&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true" target="_blank" class="facebook">
                             <span class="facebook"> <i class="fa-brands fa-facebook"></i></span>
                         </a>
-                        <span class="instagram"> <i class="fa-brands fa-instagram"></i> </span>
-                        <span class="twitter"> <i class="fa-brands fa-twitter"></i> </span>
+                      
                     </div>
                 </div>
                 <div class="information">
                     <p class="title-footer"> Informacion</p>
                     <ul>
-                        <li><a href="#"> Acerca de nosotros</a></li>
-                        <li><a href="#"> Politica de privacidad</a></li>
-                        <li><a href="#"> Terminos y condiciones</a></li>
+                        <li><a href="Nosotros.html"> Acerca de nosotros</a></li>
+                        <li><a href="Politicas.html"> Politica de privacidad</a></li>
+                        <li><a href="Terminos.html"> Terminos y condiciones</a></li>
                     </ul>
                 </div>
                 <div class="my-account">
                     <p class="title-footer"> Mi cuenta</p>
                     <ul>
-                        <li><a href="#">Mi cuenta</a></li>
-                        <li><a href="#">Historial de ordenes</a></li>
+                        <li><a href="Cuenta.html">Mi cuenta</a></li>
+                        <li><a href="Ordenes.html">Historial de ordenes</a></li>
                         <li><a href="#">Lista de deseos</a></li>
                     </ul>
                 </div>
@@ -172,5 +187,34 @@
     src="https://kit.fontawesome.com/b6fba9d152.js" 
     crossorigin="anonymous">
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const reviewForm = document.getElementById("reviewForm");
+        const userReviewInput = document.getElementById("userReview");
+        const userReviewsContainer = document.querySelector(".user-reviews");
+
+        reviewForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const userReviewText = userReviewInput.value.trim();
+            const userRating = document.querySelector('input[name="rating"]:checked');
+
+            if (userReviewText !== "" && userRating) {
+                const reviewWithRating = `${userReviewText} (${userRating.value} estrellas)`;
+                displayUserReview(reviewWithRating);
+                userReviewInput.value = "";
+                userRating.checked = false;
+            } else {
+                alert("Por favor, ingresa una reseña y selecciona una calificación.");
+            }
+        });
+
+        function displayUserReview(review) {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("user-review");
+            reviewElement.textContent = review;
+            userReviewsContainer.appendChild(reviewElement);
+        }
+    });
+</script>
 </body>
 </html>

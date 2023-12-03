@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriGym Shop Suplementos nutricionales de alta calidad</title>
+    <title>Acerca de Nosotros</title>
     <link rel="stylesheet" href="style.css">
 
-<style>
-    label{
-    font-size: 16px;
-    font-weight: bold;
-    color: #191919;
-    margin-right: 10px;
-    }
-    select option{
-      font-size: 14px;
-      color: #191919; 
-      font-weight: bold;
-    }
+    <style>
+        body{
+            text-align: center;
+        }
 
-    button{
-        font-weight: 16px;
-        font-weight: bold;
-    }
-  
-</style>
+        header h1{
+            font-size: 30px;
+        }
+        section{
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+        }
+        h1, h2 {
+            font-size: 2em;
+            color: #333;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: #071952;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
-
-
-
 <body>
-    
     <header>
         <div class="container-hero">
             <div class="container hero">
@@ -42,7 +48,7 @@
                         <span class="text"> 123498567 </span>
                     </div>
 
-                </div>
+                </div> 
                 <div class="container-logo">
                     <i class="fa-solid fa-dumbbell"></i>
                     <h1 class="logo"><a href="index.html"> NutriGym Shop</a></h1>
@@ -53,7 +59,7 @@
                     <div class="content-shopping-cart">
                         <span class="text">Carrito </span>
                         <span class="number">(0)</span>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -70,71 +76,37 @@
                     <li><a href="Registro.html">Registro</a></li>
                     <li><a href="Cuenta.html">Mi Cuenta</a></li>
                 </ul>
-                <form class="search-form">
-                    <input type="search" placeholder="Buscar..." />
-                    <button class="btn-search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+               
             </nav>
         </div>
     </header>
 
-    <section class="container top-products">
-        <h2 class="heading-1"> Productos </h2>
-    
-        <!-- Filtro -->
-        <div class="filter-options">
-            <label for="priceFilter">Ordenar por Precio:</label>
-            <select id="priceFilter">
-                <option value="">Todos</option>
-                <option value="asc">Menor a Mayor</option>
-                <option value="desc">Mayor a Menor</option>
-            </select>
-    
-            <label for="alphaFilter">Orden Alfabético:</label>
-            <select id="alphaFilter">
-                <option value="">Todos</option>
-                <option value="asc">A-Z</option>
-                <option value="desc">Z-A</option>
-            </select>
-    
-            <label for="modelFilter">Filtrar por Modelo:</label>
-            <select id="modelFilter">
-                <option value="Todos">Todos</option>
-                <option value="Proteinas">Proteinas</option>
-                <option value="Pre-Entreno">Pre-Entreno</option>
-                <option value="Creatina">Creatina</option>
-                <option value="Accesorios">Accesorios</option>
-            </select>
-    
-            <button onclick="applyFilters()">Aplicar Filtros</button>
-        </div>
-    
-        <div class="container-options">
-            <!-- Contenedor para mostrar productos -->
-            <div id="productsContainer" class="products-container">
-                <!-- Aquí se mostrarán los productos -->
-                
-            </div>
-        </div>
+    <header>
+        <br>
+        <br>
+        <h1>Acerca de Nosotros</h1>
+    </header>
+    <br>
+    <section>
+        <h2>Nuestra Historia</h2>
+        <p>Somos una empresa dedicada a proporcionar productos de alta calidad para entusiastas del fitness y aquellos que buscan mejorar su salud y bienestar.Hemos crecido para convertirnos en líderes en la industria del fitness.</p>
+
+        <p>Nuestro compromiso es ofrecer a nuestros clientes productos innovadores, duraderos y eficaces que los ayuden a alcanzar sus metas de acondicionamiento físico.</p>
     </section>
-    
-        
-        <div class="container-products">
-            <!-- Contenedor para mostrar los productos -->
-            
-    <div id="productsContainer" class="container-products">
-        <!-- Aquí es donde se mostrarán los productos -->
-    </div>
-</section>
-            
-        </div>
-    
+
+    <section>
+        <h2>Nuestra Misión</h2>
+        <p>En NutriGym Shop, nuestra misión es inspirar y empoderar a las personas para que adopten un estilo de vida activo y saludable. Creemos en la importancia de proporcionar herramientas y recursos que faciliten el logro de metas de acondicionamiento físico y mejoren la calidad de vida.</p>
     </section>
-    </main>
-    
-    
+
+    <section>
+        <h2>Nuestro Equipo</h2>
+        <p>Contamos con un equipo apasionado y dedicado de profesionales en el campo del fitness y la salud. Desde expertos en diseño de productos hasta entrenadores certificados, todos compartimos el compromiso de brindar a nuestros clientes la mejor experiencia posible.</p>
+
+        <p>Estamos aquí para apoyarte en tu viaje hacia un estilo de vida más saludable y activo.</p>
+    </section>
+
+
 
     <footer class="footer">
         <div class="container container-footer">
@@ -148,11 +120,9 @@
                         <li>Email: nutrygymshop@hotmail.com</li>
                     </ul>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61553337389807&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true"
-                            target="_blank" class="facebook">
+                        <a href= "https://www.facebook.com/profile.php?id=61553337389807&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true" target="_blank" class="facebook">
                             <span class="facebook"> <i class="fa-brands fa-facebook"></i></span>
                         </a>
-                        
                     </div>
                 </div>
                 <div class="information">
@@ -160,7 +130,7 @@
                     <ul>
                         <li><a href="Nosotros.html"> Acerca de nosotros</a></li>
                         <li><a href="Politicas.html"> Politica de privacidad</a></li>
-                        <li><a href="#"> Terminos y condiciones</a></li>
+                        <li><a href="Terminos.html"> Terminos y condiciones</a></li>
                     </ul>
                 </div>
                 <div class="my-account">
@@ -168,7 +138,7 @@
                     <ul>
                         <li><a href="Cuenta.html">Mi cuenta</a></li>
                         <li><a href="Ordenes.html">Historial de ordenes</a></li>
-                        <li><a href="Terminos.html">Lista de deseos</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
                     </ul>
                 </div>
                 <div class="newsletter">
@@ -190,13 +160,10 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://kit.fontawesome.com/b6fba9d152.js" crossorigin="anonymous">
+    <script 
+      src="https://kit.fontawesome.com/b6fba9d152.js" 
+      crossorigin="anonymous">
     </script>
-
-    <script src="script.js"></script>
-
-
+    
 </body>
-
 </html>
