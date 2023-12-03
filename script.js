@@ -136,35 +136,35 @@ const products = [
         precio: 573,
         modelo: 'Proteinas',
         imagen: 'imagenes/advancenutrition-hydrotein-5lb.jpg',
-        descripcion: 'Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo200mg de cafeína que brindan energía explosiva ideal para usuarios de nivel intermedio a avanzado en pre-entrenoFormulado para apoyar con energía, bombeos y resistencia.'
+        descripcion: 'Hydrotein cuenta con enzimas digestivas para mejorar la asimilación 5 Gr BCAAs micronizados y 5 Gr Glutamina.Además de rápida, Hydrotein es una Proteína de una pureza inigualable. Está hecha de 100% Hidrolizado de Proteína de Suero Aislada. Con lo cual no hay exceso de grasa,colesterol o lactosa que puedan frenar tu crecimiento muscular.'
     },
     {
         nombre: 'Nitraflex Black Green Apple',
         precio: 509,
         modelo: 'Pre-Entreno',
         imagen: 'imagenes/gat-nitraflex-black-452gr.jpg',
-        descripcion: 'Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo200mg de cafeína que brindan energía explosiva ideal para usuarios de nivel intermedio a avanzado en pre-entrenoFormulado para apoyar con energía, bombeos y resistencia.'
+        descripcion: 'NITRAFLEX BLACK es nuestro pre-entreno más poderoso y explosivo hasta el momento. Esta fórmula de alto impacto amplifica la energía y el enfoque con niveles de ingredientes clínicamente validados que mejoran el rendimiento y una mezcla de nootrópicos para mantenerte concentrado mientras obtienes bombeos rompe camisas con una resistencia duradera y una fuerza discordante. Está diseñado para atletas, culturistas y entusiastas del fitness, ¡llevando tu rendimiento al límite! NUEVO NITRAFLEX BLACK alimenta tu entrenamiento con lo último en pre-entrenamiento.'
     },
     {
         nombre: 'Psychotic Black',
         precio: 303,
         modelo: 'Pre-Entreno',
         imagen: 'imagenes/insanelabz-psychotic-black-220gr.jpg',
-        descripcion: 'Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo200mg de cafeína que brindan energía explosiva ideal para usuarios de nivel intermedio a avanzado en pre-entrenoFormulado para apoyar con energía, bombeos y resistencia.'
+        descripcion: 'Presentamos la última adición a la familia Psychotic de pre entreno, Psychotic BLACK. Al igual que nuestro OG Psychotic, BLACK te dará mayor concentración, energía insana y potenciará tu producción de fuerza en el gym. Con menos cafeína, Psychotic BLACK es ideal para aquellos que necesitan ese empujón extra pero quieren un estímulo más bajo en el pre.'
     },
     {
         nombre: 'Wake The Dead Smelling Salts',
         precio: 162,
         modelo: 'Pre-Entreno',
         imagen: 'imagenes/insanelabz-wake-the-dead-smelling-salts.jpg',
-        descripcion: 'Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo200mg de cafeína que brindan energía explosiva ideal para usuarios de nivel intermedio a avanzado en pre-entrenoFormulado para apoyar con energía, bombeos y resistencia.'
+        descripcion: 'Las sales aromáticas Wake the Dead son una sal aromática POTENTE (mejorada con menta verde), desarrollada por Mad Chemist para ayudarte a conseguir tu mejor efecto. Nuestras sales aromáticas, cuando se hidratan de acuerdo con la etiqueta, liberan gas amoniaco, lo que provoca un fuerte reflejo de inhalación. Este reflejo hace que los músculos que controlan la respiración trabajen más rápido, mientras que también activa el sistema nervioso simpático, lo que aumenta la frecuencia cardíaca, la presión arterial y la actividad cerebral.'
     },
     {
         nombre: 'Creatina Sabor Frambuesa',
         precio: 890,
         modelo: 'Creatina',
         imagen: 'imagenes/muscletech-cell-tech-6lb.jpg',
-        descripcion: 'Creado para desbloquear energía y resultados de siguiente nivel, C4 Extreme fue formulado con fórmulas limpias, claras y evolucionadas para un pre-entreno de rendimiento explosivo200mg de cafeína que brindan energía explosiva ideal para usuarios de nivel intermedio a avanzado en pre-entrenoFormulado para apoyar con energía, bombeos y resistencia.'
+        descripcion: 'El combustible adecuado. La cantidad correcta. La fórmula correcta. Cell-Tech ofrece una matriz de aminoácidos + BCAA para ayudarte a pasar menos tiempo recuperándote y más tiempo construyendo músculo.'
     },
 ];
 
