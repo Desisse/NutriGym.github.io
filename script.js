@@ -168,6 +168,7 @@ const products = [
     },
 ];
 
+
 // Función para aplicar filtros y mostrar productos
 function applyFilters() {
     const priceOrder = document.getElementById('priceFilter').value;
@@ -209,35 +210,41 @@ function displayProducts(products) {
 
     // Recorre la lista de productos y crea elementos para cada uno
     products.forEach(product => {
+        // Encuentra el índice original del producto antes de aplicar los filtros
+        const index = products.indexOf(product);
+
         // Crea un contenedor para cada producto
         const productElement = document.createElement('div');
         productElement.className = 'card-product';
 
-        // Agrega la imagen del producto
+        // Agrega la imagen del producto como un enlace
+        const imgLinkElement = document.createElement('a');
+        imgLinkElement.href = `producto${index + 1}.html`; // Enlazar al archivo del producto
         const imgElement = document.createElement('img');
         imgElement.src = product.imagen;
         imgElement.alt = product.nombre;
-        productElement.appendChild(imgElement);
+        imgLinkElement.appendChild(imgElement);
+        productElement.appendChild(imgLinkElement);
 
-        // Otros detalles del producto como nombre, precio, etc.
+        // Otros detalles del producto como nombre y precio
         const contentElement = document.createElement('div');
         contentElement.className = 'content-card-product';
 
-        // Agrega el nombre del producto
+        // Agrega el nombre del producto como un enlace
+        const nameLinkElement = document.createElement('a');
+        nameLinkElement.href = `producto${index + 1}.html`; // Enlazar al archivo del producto
         const nameElement = document.createElement('h3');
         nameElement.textContent = product.nombre;
-        contentElement.appendChild(nameElement);
+        nameLinkElement.appendChild(nameElement);
+        contentElement.appendChild(nameLinkElement);
 
         // Agrega el precio del producto
         const priceElement = document.createElement('p');
         priceElement.textContent = `$${product.precio}`;
         contentElement.appendChild(priceElement);
 
-        // Agrega la descripción del producto
-        const descriptionElement = document.createElement('p');
-        descriptionElement.textContent = product.descripcion;
-        contentElement.appendChild(descriptionElement);
 
+        
         // Agrega el contenido al contenedor del producto
         productElement.appendChild(contentElement);
 
