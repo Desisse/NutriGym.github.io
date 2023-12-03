@@ -14,6 +14,7 @@ function acceptCookies() {
     document.getElementById("cookie-notification").style.display = "none";
 }
 
+//Inicio de sesion usuario
 function iniciarSesion() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -49,6 +50,46 @@ function registrarUsuario() {
 
         alert("Usuario registrado exitosamente");
         window.location.href = "index.html";
+    }
+}
+
+//Inicio de sesion Admin
+//Iniciar sesion administrador
+function iniciarSesion() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    const userExists = storedUsers.some(user => user.username === username && user.password === password);
+
+    if (userExists) {
+        alert("Inicio de sesión exitoso");
+        window.location.href = "Admin.html";
+    } else {
+        alert("Nombre de administrador o contraseña incorrectos");
+    }
+}
+
+function registrarAdministrador() {
+    const registroUsername = document.getElementById("registroUsername").value;
+    const email = document.getElementById("email").value;
+    const registroPassword = document.getElementById("registroPassword").value;
+
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    const userExists = storedUsers.some(user => user.username === registroUsername);
+
+    if (userExists) {
+        alert("Este nombre de administrador ya está en uso. Por favor, elige otro.");
+    } else {
+        const newUser = { username: registroUsername, email: email, password: registroPassword };
+        storedUsers.push(newUser);
+
+        localStorage.setItem("users", JSON.stringify(storedUsers));
+
+        alert("Administrador registrado exitosamente");
+        window.location.href = "Admin.html";
     }
 }
 
