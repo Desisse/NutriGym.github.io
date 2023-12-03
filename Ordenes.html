@@ -404,7 +404,6 @@
 
      body {
             font-family: Arial, sans-serif;
-            margin: 20px;
             font-size: 16px; /* Ajusta el tamaño de la fuente principal */
         }
 
@@ -416,6 +415,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            margin-right: 20px;
         }
 
         th, td {
@@ -501,21 +501,49 @@
             <th>Número de Orden</th>
             <th>Fecha</th>
             <th>Estado</th>
+            <th>Detalles</th>
             <th>Imagen de referencia</th>
         </tr>
         <tr>
             <td>1</td>
             <td>01/12/2023</td>
             <td>En Proceso</td>
+            <td>
+                <span class="details-button" onclick="toggleDetails('order1')">Mostrar Detalles</span>
+                <div class="order-details" id="order1">
+                    <!-- Contenido de los detalles de la compra -->
+                    <p><strong>Nombre del Artículo:</strong> C4 Extreme</p>
+                    <p><strong>Cantidad Comprada:</strong> 2</p>
+                    <p><strong>Monto a Pagar:</strong> $350.00</p>
+                    <p><strong>Tipo de Envío:</strong> Estándar</p>
+                    <p><strong>Método de Pago:</strong> PayPal</p>
+                    <p><strong>Total a Pagar:</strong> $700.00</p>
+                </div>
+            </td>
             <td><img src="imagenes/c4extreme.jpg" alt="Imagen de la Orden 1" class="order-image"></td>
         </tr>
+        <!-- Producto 2-->
+
         <tr>
             <td>2</td>
             <td>02/12/2023</td>
-            <td>Completada</td>
-            <td><img src="imagenes/creatina.jpg" alt="Imagen de la Orden 2" class="order-image"></td>
+            <td>Entregado</td>
+            <td>
+                <span class="details-button" onclick="toggleDetails('order2')">Mostrar Detalles</span>
+                <div class="order-details" id="order2">
+                    <!-- Contenido de los detalles de la compra -->
+                    <p><strong>Nombre del Artículo:</strong> Nitro Tech 100% Whey Gold
+                        24G DE PROTEÍNA PURA PARA MEJOR MÚSCULO MAGRO</p>
+                    <p><strong>Cantidad Comprada:</strong> 1</p>
+                    <p><strong>Monto a Pagar:</strong> $998.00</p>
+                    <p><strong>Tipo de Envío:</strong> Estandar</p>
+                    <p><strong>Método de Pago:</strong> PayPal</p>
+                    <p><strong>Total a Pagar:</strong> $998.00</p>
+                </div>
+            </td>
+            <td><img src="imagenes/muscletech-nitro-tech-100_-whey-gold-5lb_2.jpg" alt="Imagen de la Orden 2" class="order-image"></td>
         </tr>
-        <!-- Agrega más filas según sea necesario -->
+
     </table>
     <footer class="footer">
         <div class="container container-footer">
@@ -579,7 +607,12 @@
     </script>
 
     <script src="script.js"></script>
-
+    <script>
+        function toggleDetails(orderId) {
+            const detailsDiv = document.getElementById(orderId);
+            detailsDiv.style.display = (detailsDiv.style.display === 'none' || detailsDiv.style.display === '') ? 'block' : 'none';
+        }
+    </script>
 
 </body>
 </body>
