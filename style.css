@@ -984,12 +984,13 @@ body {
 
 .filter-options button {
     padding: 8px 12px;
-    background-color: #3498db;
+    background-color: #427D9D;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
 .filter-options button:hover {
-    background-color: #2980b9;
+    background-color: #164863;
 }
+
