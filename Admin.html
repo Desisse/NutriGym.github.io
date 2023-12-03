@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+        }
+    
+        header {
+          background-color: #164863;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+        }
+    
+        nav {
+          background-color: #427D9D;
+          padding: 10px;
+        }
+    
+        nav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+        }
+    
+        nav li {
+          margin-right: 20px;
+        }
+    
+        nav a {
+          text-decoration: none;
+          color: #fff;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        table {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estiliza los botones */
+.btn {
+    margin-right: 5px;
+}
+      </style>
+</head>
+<body>
+    <header>
+        <h1>Panel de Administrador</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="CRUDCategorias.html">Categorias</a></li>
+          <li><a href="index.html">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+
+
+      <div class="container mt-5">
+        <h1>Productos</h1>
+        <form id="product-form">
+            <div class="form-group">
+                <label for="producto">Producto:</label>
+                <input type="text" class="form-control" id="producto" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion-corta">Descripción Corta:</label>
+                <input type="text" class="form-control" id="descripcion-corta" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion-larga">Descripción Larga:</label>
+                <textarea class="form-control" id="descripcion-larga" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" class="form-control" id="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen URL:</label>
+                <input type="text" class="form-control" id="imagen" required>
+            </div>
+    
+            <input type="hidden" id="edit-product-id"> <!-- Campo oculto para almacenar el ID del producto en edición -->
+    
+            <br>
+            <button type="submit" class="btn btn-primary">Agregar Producto</button>
+        </form>
+    
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Descripción Corta</th>
+                    <th>Descripción Larga</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                <!-- Aquí se agregarán los productos -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        const productForm = document.getElementById('product-form');
+        const productList = document.getElementById('product-list');
+        let productIdCounter = 1;
+    
+        productForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const productoInput = document.getElementById('producto');
+            const descripcionCortaInput = document.getElementById('descripcion-corta');
+            const descripcionLargaInput = document.getElementById('descripcion-larga');
+            const precioInput = document.getElementById('precio');
+            const imagenInput = document.getElementById('imagen');
+            const editProductIdInput = document.getElementById('edit-product-id');
+    
+            const producto = productoInput.value;
+            const descripcionCorta = descripcionCortaInput.value;
+            const descripcionLarga = descripcionLargaInput.value;
+            const precio = precioInput.value;
+            const imagen = imagenInput.value;
+            const editProductId = editProductIdInput.value;
+    
+            if (editProductId) {
+                // Modificar el producto existente
+                const row = productList.querySelector(`[data-product-id="${editProductId}"]`);
+                const cells = row.querySelectorAll('td');
+    
+                cells[1].textContent = producto;
+                cells[2].textContent = descripcionCorta;
+                cells[3].textContent = descripcionLarga;
+                cells[4].textContent = precio;
+                cells[5].innerHTML = `<img src="${imagen}" alt="${producto}" style="max-width: 50px;">`;
+    
+                // Limpiar el campo de edición
+                editProductIdInput.value = '';
+    
+                // Restaurar el botón a "Agregar Producto"
+                productForm.querySelector('button[type="submit"]').textContent = 'Agregar Producto';
+    
+                // Limpiar los campos
+                clearFormFields();
+            } else if (producto && descripcionCorta && descripcionLarga && precio && imagen) {
+                // Agregar un nuevo producto
+                const row = document.createElement('tr');
+                const productId = productIdCounter;
+                row.dataset.productId = productId;
+                row.innerHTML = `
+                    <td>${productIdCounter}</td>
+                    <td>${producto}</td>
+                    <td>${descripcionCorta}</td>
+                    <td>${descripcionLarga}</td>
+                    <td>${precio}</td>
+                    <td><img src="${imagen}" alt="${producto}" style="max-width: 50px;"></td>
+                    <td>
+                        <button class="btn btn-warning btn-sm editar" data-id="${productId}">Editar</button>
+                        <button class="btn btn-danger btn-sm borrar" data-id="${productId}">Borrar</button>
+                    </td>
+                `;
+                productList.appendChild(row);
+    
+                productIdCounter++;
+    
+                // Limpiar los campos
+                clearFormFields();
+            }
+        });
+    
+        productList.addEventListener('click', function (e) {
+            if (e.target.classList.contains('borrar')) {
+                const productId = e.target.dataset.id;
+                const row = productList.querySelector(`[data-product-id="${productId}"]`);
+                row.remove();
+            } else if (e.target.classList.contains('editar')) {
+                const productId = e.target.dataset.id;
+                const row = productList.querySelector(`[data-product-id="${productId}"]`);
+                const cells = row.querySelectorAll('td');
+                const productoInput = document.getElementById('producto');
+                const descripcionCortaInput = document.getElementById('descripcion-corta');
+                const descripcionLargaInput = document.getElementById('descripcion-larga');
+                const precioInput = document.getElementById('precio');
+                const imagenInput = document.getElementById('imagen');
+                const editProductIdInput = document.getElementById('edit-product-id');
+    
+                productoInput.value = cells[1].textContent;
+                descripcionCortaInput.value = cells[2].textContent;
+                descripcionLargaInput.value = cells[3].textContent;
+                precioInput.value = cells[4].textContent;
+                imagenInput.value = ''; // Puedes mantener la imagen actual o permitir cambiarla
+                editProductIdInput.value = productId;
+    
+                // Cambiar el texto del botón a "Guardar Cambios"
+                productForm.querySelector('button[type="submit"]').textContent = 'Guardar Cambios';
+            }
+        });
+    
+        function clearFormFields() {
+            document.getElementById('producto').value = '';
+            document.getElementById('descripcion-corta').value = '';
+            document.getElementById('descripcion-larga').value = '';
+            document.getElementById('precio').value = '';
+            document.getElementById('imagen').value = '';
+        }
+    </script>
+    
+    
+</body>
+</html>

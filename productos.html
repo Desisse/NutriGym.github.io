@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriGym Shop Suplementos nutricionales de alta calidad</title>
     <link rel="stylesheet" href="style.css">
-    <title>Detalles Producto</title> 
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2755YM1PRT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-2755YM1PRT');
-</script>
-<script src="https://www.paypal.com/sdk/js?client-id=AVe6UhwhOh1pJsjkJXD11w7p4JdLenXhTrxKEoM0iBkfhrdvRVQ_rKCgsNjUj2ak2ArGD9NysTUPbf5E"></script>
+<style>
+    label{
+    font-size: 16px;
+    font-weight: bold;
+    color: #191919;
+    margin-right: 10px;
+    }
+    select option{
+      font-size: 14px;
+      color: #191919; 
+      font-weight: bold;
+    }
+
+    button{
+        font-weight: 16px;
+        font-weight: bold;
+    }
+  
+</style>
+</head>
+
+
+
 <body>
+    
     <header>
         <div class="container-hero">
             <div class="container hero">
@@ -27,7 +42,7 @@
                         <span class="text"> 123498567 </span>
                     </div>
 
-                </div> 
+                </div>
                 <div class="container-logo">
                     <i class="fa-solid fa-dumbbell"></i>
                     <h1 class="logo"><a href="index.html"> NutriGym Shop</a></h1>
@@ -38,7 +53,7 @@
                     <div class="content-shopping-cart">
                         <span class="text">Carrito </span>
                         <span class="number">(0)</span>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,59 +70,71 @@
                     <li><a href="Registro.html">Registro</a></li>
                     <li><a href="Cuenta.html">Mi Cuenta</a></li>
                 </ul>
-               
+                <form class="search-form">
+                    <input type="search" placeholder="Buscar..." />
+                    <button class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
             </nav>
         </div>
     </header>
 
-    <div class="card">
-        <div class="imgBox">
-            <img src="imagenes/insanelabz-psychotic-black-220gr.jpg" alt="Psychotic">
+    <section class="container top-products">
+        <h2 class="heading-1"> Productos </h2>
+    
+        <!-- Filtro -->
+        <div class="filter-options">
+            <label for="priceFilter">Ordenar por Precio:</label>
+            <select id="priceFilter">
+                <option value="">Todos</option>
+                <option value="asc">Menor a Mayor</option>
+                <option value="desc">Mayor a Menor</option>
+            </select>
+    
+            <label for="alphaFilter">Orden Alfabético:</label>
+            <select id="alphaFilter">
+                <option value="">Todos</option>
+                <option value="asc">A-Z</option>
+                <option value="desc">Z-A</option>
+            </select>
+    
+            <label for="modelFilter">Filtrar por Modelo:</label>
+            <select id="modelFilter">
+                <option value="Todos">Todos</option>
+                <option value="Proteinas">Proteinas</option>
+                <option value="Pre-Entreno">Pre-Entreno</option>
+                <option value="Creatina">Creatina</option>
+                <option value="Accesorios">Accesorios</option>
+            </select>
+    
+            <button onclick="applyFilters()">Aplicar Filtros</button>
         </div>
-        <div class="details">
-            <div class="title">
-                <h3>Psychotic Black <br>
-                    <small>Fuerza insana, resultados psicóticos</small>
-                </h3>
-            </div>
-            <div class="description">
-                <h4>Descripción</h4>
-                <p> Presentamos la última adición a la familia Psychotic de pre entreno, Psychotic BLACK. Al igual que nuestro OG Psychotic, BLACK te dará mayor concentración, energía insana y potenciará tu producción de fuerza en el gym. Con menos cafeína, Psychotic BLACK es ideal para aquellos que necesitan ese empujón extra pero quieren un estímulo más bajo en el pre.
-                </p>
-            </div>
-            <div class="buy">
-                <div class="price">
-                    <sup>$</sup>
-                    <span>303</span>
-                </div>
-                <div class="btn">
-                    <a href="#">Pagar con</a>
-                    <div id="paypal-button-container"></div>
-                    
-                </div>
+    
+        <div class="container-options">
+            <!-- Contenedor para mostrar productos -->
+            <div id="productsContainer" class="products-container">
+                <!-- Aquí se mostrarán los productos -->
+                
             </div>
         </div>
-        <script>
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: '303.00'
-                            }
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        alert('Pago completado. ¡Gracias por tu compra!');
-                        // Puedes agregar aquí lógica adicional después de completar el pago
-                    });
-                }
-            }).render('#paypal-button-container');
-        </script>
-
+    </section>
+    
+        
+        <div class="container-products">
+            <!-- Contenedor para mostrar los productos -->
+            
+    <div id="productsContainer" class="container-products">
+        <!-- Aquí es donde se mostrarán los productos -->
     </div>
+</section>
+            
+        </div>
+    
+    </section>
+    </main>
+    
+    
 
     <footer class="footer">
         <div class="container container-footer">
@@ -121,7 +148,8 @@
                         <li>Email: nutrygymshop@hotmail.com</li>
                     </ul>
                     <div class="social-icons">
-                        <a href= "https://www.facebook.com/profile.php?id=61553337389807&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true" target="_blank" class="facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61553337389807&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true"
+                            target="_blank" class="facebook">
                             <span class="facebook"> <i class="fa-brands fa-facebook"></i></span>
                         </a>
                         
@@ -162,10 +190,13 @@
             </div>
         </div>
     </footer>
-    
-    <script 
-    src="https://kit.fontawesome.com/b6fba9d152.js" 
-    crossorigin="anonymous">
-  </script>
+
+    <script src="https://kit.fontawesome.com/b6fba9d152.js" crossorigin="anonymous">
+    </script>
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>

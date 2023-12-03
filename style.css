@@ -905,3 +905,92 @@ border-right: 1px solid #e2e2e2;
 .rating label:hover ~ label {
     background-image: url('imagenes/dorada.png'); /* Reemplaza 'ruta/a/tu/imagen/estrella-hover.png' con la ruta de tu imagen de estrella cuando se pasa el cursor */
 }
+
+/* FILTRO */
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(244, 244, 244);
+}
+
+/* Contenedor de productos */
+#productsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Tarjeta de producto */
+.card-product {
+    width: 200px;
+    margin: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card-product:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen del producto */
+.card-product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Contenido del producto */
+.content-card-product {
+    padding: 15px;
+}
+
+/* Nombre del producto */
+.content-card-product h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Precio del producto */
+.content-card-product p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Descripción del producto */
+.content-card-product p:last-child {
+    font-size: 1em;
+    color: #555;
+}
+
+/*ESTILO FILTRO*/
+.filter-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-options select,
+.filter-options button {
+    margin-left: 10px;
+}
+
+.filter-options button {
+    padding: 8px 12px;
+    background-color: #427D9D;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-options button:hover {
+    background-color: #164863;
+}
+

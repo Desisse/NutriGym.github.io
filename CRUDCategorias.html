@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+        }
+    
+        header {
+          background-color: #164863;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+        }
+    
+        nav {
+          background-color: #427D9D;
+          padding: 10px;
+        }
+    
+        nav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+        }
+    
+        nav li {
+          margin-right: 20px;
+        }
+    
+        nav a {
+          text-decoration: none;
+          color: #fff;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        table {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estiliza los botones */
+.btn {
+    margin-right: 5px;
+}
+      </style>
+</head>
+<body>
+    <header>
+        <h1>Panel de Administrador</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="Admin.html">Inicio</a></li>
+          <li><a href="CRUDCategorias.html">Categorias</a></li>
+          <li><a href="index.html">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+
+      <div class="container mt-5">
+        <h1>Categorías</h1>
+        <form id="category-form">
+            <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <input type="text" class="form-control" id="categoria" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" id="descripcion" required></textarea>
+            </div>
+    
+            <input type="hidden" id="edit-category-id"> <!-- Campo oculto para almacenar el ID de la categoría en edición -->
+    
+            <br>
+            <button type="submit" class="btn btn-primary">Agregar Categoría</button>
+        </form>
+    
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="category-list">
+                <!-- Aquí se agregarán las categorías -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        const categoryForm = document.getElementById('category-form');
+        const categoryList = document.getElementById('category-list');
+        let categoryIdCounter = 1;
+    
+        categoryForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const categoriaInput = document.getElementById('categoria');
+            const descripcionInput = document.getElementById('descripcion');
+            const editCategoryIdInput = document.getElementById('edit-category-id');
+    
+            const categoria = categoriaInput.value;
+            const descripcion = descripcionInput.value;
+            const editCategoryId = editCategoryIdInput.value;
+    
+            if (editCategoryId) {
+                // Modificar la categoría existente
+                const row = categoryList.querySelector(`[data-category-id="${editCategoryId}"]`);
+                const cells = row.querySelectorAll('td');
+    
+                cells[1].textContent = categoria;
+                cells[2].textContent = descripcion;
+    
+                // Limpiar el campo de edición
+                editCategoryIdInput.value = '';
+    
+                // Restaurar el botón a "Agregar Categoría"
+                categoryForm.querySelector('button[type="submit"]').textContent = 'Agregar Categoría';
+    
+                // Limpiar los campos categoria y descripcion
+                categoriaInput.value = '';
+                descripcionInput.value = '';
+            } else if (categoria && descripcion) {
+                // Agregar una nueva categoría
+                const row = document.createElement('tr');
+                const categoryId = categoryIdCounter;
+                row.dataset.categoryId = categoryId;
+                row.innerHTML = `
+                    <td>${categoryIdCounter}</td>
+                    <td>${categoria}</td>
+                    <td>${descripcion}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm editar" data-id="${categoryId}">Editar</button>
+                        <button class="btn btn-danger btn-sm borrar" data-id="${categoryId}">Borrar</button>
+                    </td>
+                `;
+                categoryList.appendChild(row);
+    
+                categoryIdCounter++;
+    
+                // Limpiar los campos de categoria y descripcion
+                categoriaInput.value = '';
+                descripcionInput.value = '';
+            }
+        });
+    
+        categoryList.addEventListener('click', function (e) {
+            if (e.target.classList.contains('borrar')) {
+                const categoryId = e.target.dataset.id;
+                const row = categoryList.querySelector(`[data-category-id="${categoryId}"]`);
+                row.remove();
+            } else if (e.target.classList.contains('editar')) {
+                const categoryId = e.target.dataset.id;
+                const row = categoryList.querySelector(`[data-category-id="${categoryId}"]`);
+                const cells = row.querySelectorAll('td');
+                const categoriaInput = document.getElementById('categoria');
+                const descripcionInput = document.getElementById('descripcion');
+                const editCategoryIdInput = document.getElementById('edit-category-id');
+    
+                categoriaInput.value = cells[1].textContent;
+                descripcionInput.value = cells[2].textContent;
+                editCategoryIdInput.value = categoryId;
+    
+                // Cambiar el texto del botón a "Guardar Cambios"
+                categoryForm.querySelector('button[type="submit"]').textContent = 'Guardar Cambios';
+            }
+        });
+    </script>
+    
+
+    </body>
+    </html>
