@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politicas de Privacidad - NutriGym Shop</title>
     <link rel="stylesheet" href="style.css">
-    <title>Detalles Producto</title> 
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2755YM1PRT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-2755YM1PRT');
-</script>
-<script src="https://www.paypal.com/sdk/js?client-id=AVe6UhwhOh1pJsjkJXD11w7p4JdLenXhTrxKEoM0iBkfhrdvRVQ_rKCgsNjUj2ak2ArGD9NysTUPbf5E"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        header h1{
+            font-size: 30px;
+        }
+        section{
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+        }
+        h1, h2 {
+            font-size: 2em;
+            color: #333;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: #071952;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
 <body>
     <header>
         <div class="container-hero">
@@ -59,55 +80,46 @@
             </nav>
         </div>
     </header>
+    <header>
+        <br>
+        <br>
+        <h1>Política de Privacidad</h1>
+    </header>
 
-    <div class="card">
-        <div class="imgBox">
-            <img src="imagenes/muscletech-nitro-tech-100_-whey-gold-5lb_2.jpg" alt="Nitro Tech 100">
-        </div>
-        <div class="details">
-            <div class="title">
-                <h3>Nitro Tech 100% Whey Gold <br>
-                    <small>24G DE PROTEÍNA PURA PARA MEJOR MÚSCULO MAGRO</small>
-                </h3>
-            </div>
-            <div class="description">
-                <h4>Descripción</h4>
-                <p>Esta fórmula de proteína de suero de leche de acción rápida está fortificada con 5.5g de BCAA y 4g de glutamina, alimenta tus músculos rápidamente, para que puedas seguir desempeñándote en un alto nivel.
-                </p>
-            </div>
-            <div class="buy">
-                <div class="price">
-                    <sup>$</sup>
-                    <span>998</span>
-                </div>
-                <div class="btn">
-                    <a href="#">Pagar con</a>
-                    <div id="paypal-button-container"></div>
-                    
-                </div>
-            </div>
-        </div>
-        <script>
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: '998.00'
-                            }
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        alert('Pago completado. ¡Gracias por tu compra!');
-                        // Puedes agregar aquí lógica adicional después de completar el pago
-                    });
-                }
-            }).render('#paypal-button-container');
-        </script>
+    <section>
+        <h2>1. Información que recopilamos</h2>
+        <p>En NutriGym Shop, recopilamos información que nos proporcionas al realizar compras en nuestro sitio web, suscribirte a nuestro boletín, participar en encuestas o interactuar con nosotros de alguna manera. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección postal, información de pago, preferencias de productos y cualquier otra información relevante para brindarte nuestros servicios.</p>
 
-    </div>
+        <p>Además, automáticamente recopilamos información sobre tu dispositivo y tu uso de nuestro sitio web a través de cookies y otras tecnologías de seguimiento. Esta información puede incluir la dirección IP, tipo de navegador, páginas visitadas y otros datos de comportamiento del usuario.</p>
+    </section>
+
+    <section>
+        <h2>2. Uso de la información</h2>
+        <p>La información recopilada se utiliza para procesar pedidos, personalizar la experiencia del usuario, mejorar nuestro sitio web y ofrecerte productos y servicios relevantes. Utilizamos tu información para comunicarnos contigo sobre tu cuenta, enviar actualizaciones de productos, promociones y responder a tus consultas o solicitudes.</p>
+
+        <p>También podemos utilizar información agregada y anónima para realizar análisis de datos, mejorar nuestros productos y servicios, y para otros fines comerciales legítimos.</p>
+    </section>
+
+    <section>
+        <h2>3. Cookies y tecnologías similares</h2>
+        <p>Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario y analizar el tráfico en nuestro sitio. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo para recordar tus preferencias y brindarte una experiencia personalizada.</p>
+
+        <p>Puedes gestionar las preferencias de cookies a través de la configuración de tu navegador. Al utilizar nuestro sitio web, aceptas el uso de cookies de acuerdo con nuestra política de cookies.</p>
+    </section>
+
+    <section>
+        <h2>4. Terceros</h2>
+        <p>Podemos compartir información con terceros para mejorar nuestros servicios, procesar pagos, realizar análisis de datos y llevar a cabo otras actividades comerciales. Sin embargo, nos aseguramos de que estos terceros cumplan con las prácticas de privacidad y seguridad adecuadas.</p>
+
+        <p>No vendemos ni alquilamos tu información personal a terceros con fines de marketing sin tu consentimiento expreso.</p>
+    </section>
+
+    <section>
+        <h2>5. Seguridad</h2>
+        <p>Nos comprometemos a proteger la información de nuestros clientes y tomamos medidas de seguridad para prevenir el acceso no autorizado, la divulgación, la alteración o la destrucción de la información que recopilamos. Utilizamos protocolos de seguridad estándar de la industria y encriptación para proteger tus datos.</p>
+
+        <p>A pesar de nuestras mejores prácticas de seguridad, ten en cuenta que ninguna transmisión de datos por Internet o almacenamiento electrónico es completamente segura. Por lo tanto, no podemos garantizar la seguridad absoluta de tu información.</p>
+    </section>
 
     <footer class="footer">
         <div class="container container-footer">
@@ -161,10 +173,10 @@
             </div>
         </div>
     </footer>
-    
     <script 
-    src="https://kit.fontawesome.com/b6fba9d152.js" 
-    crossorigin="anonymous">
-  </script>
+      src="https://kit.fontawesome.com/b6fba9d152.js" 
+      crossorigin="anonymous">
+    </script>
+    
 </body>
 </html>
