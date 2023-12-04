@@ -46,7 +46,20 @@ function registrarUsuario() {
         const newUser = { username: registroUsername, email: email, password: registroPassword };
         storedUsers.push(newUser);
 
+        // Guardar en localStorage
         localStorage.setItem("users", JSON.stringify(storedUsers));
+
+        // Crear y descargar un archivo JSON
+        const jsonData = JSON.stringify(storedUsers, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "usuarios.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
 
         alert("Usuario registrado exitosamente");
         window.location.href = "index.html";
