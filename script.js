@@ -46,53 +46,25 @@ function registrarUsuario() {
         const newUser = { username: registroUsername, email: email, password: registroPassword };
         storedUsers.push(newUser);
 
+        // Guardar en localStorage
         localStorage.setItem("users", JSON.stringify(storedUsers));
+
+        // Crear y descargar un archivo JSON
+        const jsonData = JSON.stringify(storedUsers, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "usuarios.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
 
         alert("Usuario registrado exitosamente");
         window.location.href = "index.html";
     }
 }
-
-//Inicio de sesion Admin
-//Iniciar sesion administrador
-function iniciarSesion() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    const userExists = storedUsers.some(user => user.username === username && user.password === password);
-
-    if (userExists) {
-        alert("Inicio de sesión exitoso");
-        window.location.href = "Admin.html";
-    } else {
-        alert("Nombre de administrador o contraseña incorrectos");
-    }
-}
-
-function registrarAdministrador() {
-    const registroUsername = document.getElementById("registroUsername").value;
-    const email = document.getElementById("email").value;
-    const registroPassword = document.getElementById("registroPassword").value;
-
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    const userExists = storedUsers.some(user => user.username === registroUsername);
-
-    if (userExists) {
-        alert("Este nombre de administrador ya está en uso. Por favor, elige otro.");
-    } else {
-        const newUser = { username: registroUsername, email: email, password: registroPassword };
-        storedUsers.push(newUser);
-
-        localStorage.setItem("users", JSON.stringify(storedUsers));
-
-        alert("Administrador registrado exitosamente");
-        window.location.href = "Admin.html";
-    }
-}
-
 
 // Lista de productos
 const products = [
@@ -168,6 +140,7 @@ const products = [
     },
 ];
 
+
 // Función para aplicar filtros y mostrar productos
 function applyFilters() {
     const priceOrder = document.getElementById('priceFilter').value;
@@ -209,35 +182,41 @@ function displayProducts(products) {
 
     // Recorre la lista de productos y crea elementos para cada uno
     products.forEach(product => {
+        // Encuentra el índice original del producto antes de aplicar los filtros
+        const index = products.indexOf(product);
+
         // Crea un contenedor para cada producto
         const productElement = document.createElement('div');
         productElement.className = 'card-product';
 
-        // Agrega la imagen del producto
+        // Agrega la imagen del producto como un enlace
+        const imgLinkElement = document.createElement('a');
+        imgLinkElement.href = `producto${index + 1}.html`; // Enlazar al archivo del producto
         const imgElement = document.createElement('img');
         imgElement.src = product.imagen;
         imgElement.alt = product.nombre;
-        productElement.appendChild(imgElement);
+        imgLinkElement.appendChild(imgElement);
+        productElement.appendChild(imgLinkElement);
 
-        // Otros detalles del producto como nombre, precio, etc.
+        // Otros detalles del producto como nombre y precio
         const contentElement = document.createElement('div');
         contentElement.className = 'content-card-product';
 
-        // Agrega el nombre del producto
+        // Agrega el nombre del producto como un enlace
+        const nameLinkElement = document.createElement('a');
+        nameLinkElement.href = `producto${index + 1}.html`; // Enlazar al archivo del producto
         const nameElement = document.createElement('h3');
         nameElement.textContent = product.nombre;
-        contentElement.appendChild(nameElement);
+        nameLinkElement.appendChild(nameElement);
+        contentElement.appendChild(nameLinkElement);
 
         // Agrega el precio del producto
         const priceElement = document.createElement('p');
         priceElement.textContent = `$${product.precio}`;
         contentElement.appendChild(priceElement);
 
-        // Agrega la descripción del producto
-        const descriptionElement = document.createElement('p');
-        descriptionElement.textContent = product.descripcion;
-        contentElement.appendChild(descriptionElement);
 
+        
         // Agrega el contenido al contenedor del producto
         productElement.appendChild(contentElement);
 
@@ -248,3 +227,8 @@ function displayProducts(products) {
 
 // Inicialmente, muestra todos los productos sin filtros
 displayProducts(products);
+
+function deleteProduct(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
