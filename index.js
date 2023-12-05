@@ -101,7 +101,7 @@ const updateCartTotal = () => {
         totalOfProducts += product.quantity;
     });
 
-    valorTotal.innerText = `$${total}`;
+    valorTotal.innerText = `${total}`;
     countProducts.innerText = totalOfProducts;
 };
 

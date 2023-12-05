@@ -92,9 +92,10 @@
     
                         <div class="cart-total hidden">
                             <h3>Total:</h3>
-                            <span class="total-pagar"></span>
+                            <span class="total-pagar" id="auxTotal"></span>
+                            <div id="paypal-button-container"></div>
                         </div>
-                        <p class="cart-empty hidden">El carrito está vacío</p>
+                        <p class="cart-empty hidden"> </p>
                     </div>
                 </div>
             </div>
@@ -624,6 +625,36 @@
 
     <script src="script.js" ></script>
     <script src="index.js" ></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVe6UhwhOh1pJsjkJXD11w7p4JdLenXhTrxKEoM0iBkfhrdvRVQ_rKCgsNjUj2ak2ArGD9NysTUPbf5E"></script>
+
+    <script>
+        function calcularTotalCarrito() {
+            const auxTotal = document.getElementById('auxTotal').textContent;
+            total = parseFloat(auxTotal);
+            console.log(total)
+            return total;
+        }
+        paypal.Buttons({
+        createOrder: function(data, actions) {
+            var totalCarrito = calcularTotalCarrito(); // Asegúrate de que esta función devuelve el total correcto
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: totalCarrito
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Pago completado por ' + details.payer.name.given_name);
+                // Aquí puedes redirigir al usuario o actualizar la interfaz según sea necesario
+            });
+        }
+    }).render('#paypal-button-container');
+    
+    
+        </script>
     
 </body>
 </html>
