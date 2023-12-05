@@ -468,6 +468,20 @@
         .navigation-button:hover {
             background-color: var(--dark-color);
         }
+        .editable-info button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editable-info button:hover {
+  background-color: var(--dark-color);
+}
 
 </style>
 </head>
@@ -551,6 +565,8 @@
           <input type="text" id="direccion" name="direccion" class="edit-input" value="Calle 123, Ciudad" disabled>
           <span class="edit-icon" onclick="enableEdit('direccion')">✏️</span>
         </div>
+          <!-- Botón "Guardar Cambios" -->
+      <button onclick="saveChanges()">Guardar Cambios</button>
       </div>
     </div>
   </section>
@@ -611,7 +627,8 @@
 
 
   
-  <script>
+  <!-- Bloque de código script -->
+<script>
     function enableEdit(fieldId) {
       const field = document.getElementById(fieldId);
       field.disabled = !field.disabled;
@@ -619,17 +636,54 @@
 
     function togglePassword(passwordFieldId) {
       const passwordField = document.getElementById(passwordFieldId);
-      const icon = passwordField.nextElementSibling;
+      const icon = passwordField ? passwordField.nextElementSibling : null;
 
-      if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        icon.textContent = '👁️';
-      } else {
-        passwordField.type = 'password';
-        icon.textContent = '✏️';
+      if (passwordField && icon) {
+        if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          icon.textContent = '👁️';
+        } else {
+          passwordField.type = 'password';
+          icon.textContent = '✏️';
+        }
       }
     }
-  </script>
+
+    function saveChanges() {
+      const userInfo = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        direccion: document.getElementById('direccion').value,
+      };
+
+      // Convierte el objeto JSON a una cadena JSON
+      const jsonString = JSON.stringify(userInfo);
+
+      // Guarda la cadena JSON en el almacenamiento local
+      localStorage.setItem('userInfo', jsonString);
+
+      // Puedes almacenar jsonString en una variable, enviarlo a un servidor o guardar localmente
+      console.log('Información del usuario en JSON:', jsonString);
+
+      // Muestra un mensaje emergente indicando que los cambios se han guardado exitosamente
+      alert('Cambios guardados exitosamente.');
+    }
+
+    // Recupera la información del usuario al cargar la página
+    window.onload = function () {
+      const storedUserInfo = localStorage.getItem('userInfo');
+
+      if (storedUserInfo) {
+        const userInfo = JSON.parse(storedUserInfo);
+        // Actualiza los campos con la información recuperada
+        document.getElementById('nombre').value = userInfo.nombre;
+        document.getElementById('email').value = userInfo.email;
+        document.getElementById('password').value = userInfo.password;
+        document.getElementById('direccion').value = userInfo.direccion;
+      }
+    };
+</script>
   <script src="https://kit.fontawesome.com/b6fba9d152.js" crossorigin="anonymous"> 
 </script>
 
